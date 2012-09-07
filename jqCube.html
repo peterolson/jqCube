@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head><title>Rotating Cube</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="jqCube.jquery.min.js"></script>
+
+<style>
+  h1
+  {
+      text-align: center;
+      font-size: 38pt;
+  }
+  #cube div
+  {
+      border: 1px solid black;
+  }
+
+  #text
+  {
+      position: absolute;
+      left: 200px;
+      top: 200px;
+      display:none;
+  }
+
+  #settings
+  {
+      float:right;
+  }
+</style>
+</head><body>
+<div id="text"><h1>Background<br />text</h1></div>
+<div id="cube">
+<div class="top">
+<h1>Top</h1>
+</div>
+<div class="bottom">
+<h1>Bottom</h1>
+</div>
+<div class="front">
+<h1>Front</h1>
+      </div>
+<div class="back">
+<h1>Back</h1>
+</div>
+<div class="right">
+<h1>Right</h1>
+</div>
+<div class="left">
+<h1>Left</h1>
+</div>
+</div>
+<div id="settings">
+Length: <input type="text" id="length" value="400" />px<br />
+Width: <input type="text" id="width" value="400"/>px<br />
+Height: <input type="text" id="height" value="400"/>px<br />
+Center: <input type="text" id="center" value="[300, 300]" /><br />
+<br />
+Light Direction: <input type="text" id="lightDirection" value="[1, 1, 1]" /><br />
+Min Luminosity: <span class="minLuminosity">50</span>% <div class="slider" id="minLuminosity" data-min="0", data-max="100" data-value="50"></div>
+Max Luminosity: <span class="maxLuminosity">85</span>% <div class="slider" id="maxLuminosity" data-min="0", data-max="100" data-value="85"></div>
+Hue: <span class="hue">128</span> <div class="slider" id="hue" data-min="0", data-max="255" data-value="128"></div>
+Saturation: <span class="saturation">50</span>% <div class="slider" id="saturation" data-min="0", data-max="100" data-value="50"></div>
+Opacity: <span class="opacity">100</span>% <div class="slider" id="opacity" data-min="0", data-max="100" data-value="100"></div>
+<br />
+Turn <span id="turn"><button id="moveLeft">Left</button><button id="moveRight">Right</button><button id="moveUp">Up</button><button id="moveDown">Down</button></span><br />
+Face <span id="face"><button id="front">Front</button><button id="right">Right</button><button id="left">Left</button><button id="back">Back</button><button id="top">Top</button><button id="bottom">Bottom</button></span>
+<br />
+Animate: <input type="checkbox" id="animate" checked /><br />
+Frames per second: <input type="text" id="frameRate" value="20"/><br />
+Seconds per rotation: <input type="text" id="secondsPerRotation" value="5"/><br />
+Horizontal rate: <input type="text" id="horizontalCoefficient" value="1"/><br />
+Vertical rate: <input type="text" id="verticalCoeficcient" value="1"/><br />
+Change HTML on <select id="faceSelector">
+<option value="#cube .front">Front</option>
+<option value="#cube .back">Back</option>
+<option value="#cube .right">Right</option>
+<option value="#cube .left">Left</option>
+<option value="#cube .top">Top</option>
+<option value="#cube .bottom">Bottom</option>
+</select><br />
+<textarea id="faceHTML" rows="7" cols="40"></textarea>
+</div>
+      <script>
+      	var cube = $("#cube").cube();
+
+      	$("#turn button").click(function () {
+      		cube[this.id](1);
+      	});
+
+      	$("#face button").click(function () {
+      		cube.setPosition(this.id);
+      	});
+
+      	$("#animate").change(function () {
+      		this.checked ? cube.startAnimation() : cube.stopAnimation();
+      	});
+
+      	$("#settings input").change(function () {
+      		cube.setOption(this.id, $.parseJSON($(this).val()));
+      	});
+
+      	$("#faceSelector").change(function () {
+      		$("#faceHTML").val($($(this).val()).html());
+      	});
+      	$("#faceSelector").change();
+
+      	$("#faceHTML").keyup(function () {
+      		$($("#faceSelector").val()).html($(this).val());
+      	});
+
+      	$(".slider").each(function () {
+      		var $this = $(this), id = this.id;
+      		$this.slider({
+      			change: function (e, ui) {
+      				cube.setOption(id, ui.value);
+      			},
+      			slide: function (e, ui) {
+      				$("#settings span." + id).html(ui.value);
+      			},
+      			max: $this.data("max"),
+      			min: $this.data("min"),
+      			value: $this.data("value")
+      		});
+      	});
+</script>
+</body></html>
