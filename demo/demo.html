@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<head>
+    <title>Fill out customer form</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../jqCube.jquery.min.js"></script>
+    <style>
+        h1 {
+            font-size: 24pt;
+        }
+
+        img {
+            width: 75px;
+        }
+
+        .left img {
+            width: 100%;
+        }
+
+        #myCube div {
+            border: 1px solid black;
+        }
+
+        marquee {
+            color: red;
+        }
+
+        button {
+            width: 90%;
+            height: 80%;
+            font-size: 50pt;
+        }
+    </style>
+</head>
+<body>
+    <div id="myCube">
+        <div class="top">
+            Please wait while we process a request that you never made:
+ 
+            <center><img src="http://dl.dropbox.com/u/25059665/wait.gif"/></center>
+            While you are waiting, please do what you typically do while you are waiting for something to happen. Thank you. :)<br>
+            If nothing comes to mind, just play this fun little arcade game called asteroids:<br>
+            <iframe src="http://www.play.vg/games/4-Asteroids.html"></iframe>
+        </div>
+        <div class="bottom">
+            <strong>For your convenience, please fill out the following information. :)</strong>
+            <table>
+                <tr>
+                    <td>
+                        Username:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+     
+                    </td>
+                    <td>
+                        <input type="password" />
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        Confirm password:
+     
+                    </td>
+                    <td>
+                        <input type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Social Security Number:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Security Question:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        Security Answer:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        Telephone Number:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Street Address:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        City:
+     
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>
+                        State:
+     
+                    </td>
+                    <td>
+                        <select>
+                        <optgroup label="Select a state!!!">
+                        <option>Texas</option>
+                        <option>Florida</option>
+                        <option>Montana</option>
+                        <option>Anywhere else</option>
+                        </optgroup>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+            </table>
+            We feel sorry for our customers who live "Anywhere else".
+        </div>
+        <div class="front">
+            When you feel you are ready to submit you information, please click the submit button that is below (or above or sideways...it really depends on the orientation of the cube):
+ 
+            <button onclick="alert('Sorry, the information you provided was incorrect.');">SUBMIT
+  </button>
+        </div>
+        <div class="back">
+            <marquee><h2>Important Legal Information!!!</h2></marquee>
+            <strong>The software is for evaluation purposes only. You may not distribute any
+program you develop with the software. • Included CoolGear Programs. These
+license terms apply to all CoolGear programs included with the software. •
+Third Party Programs. The software contains third party programs. The license
+terms with those programs apply to your use of them.2. INTERNET-BASED SERVICES.
+CoolGear provides Internet-based services with the software. It may change or
+cancel them at any time. 3. TIME-SENSITIVE SOFTWARE.
+                <marquee>The software will stop
+     running on 15 March 2008. You will not receive any other notice.</marquee>
+                You may not be
+able to access data used with the software when it stops running. 4. PRE-RELEASE
+SOFTWARE. This software is a pre-release version. It may not work the way a
+final version of the software will. We may change it for the final, commercial
+     version. We also may not release a commercial version.</strong>
+        </div>
+        <div class="right">
+
+            <h1>Sign Up</h1>
+            <p>We at Cool<i>Gear</i> think that our customers deserve the best.
+    We are not completely agreed on what exactly <i>best</i> means, but we won't let that hinder our meaningless idealism.</p>
+            <p>But since we think our customers deserve the best, and presumably you would like to be a recipient of whatever the best is,
+    we think it is reasonable to conclude that you would like to be one of our customers.</p>
+            <p>So, start filling out your information, already, and become one of our customers, so you can be one among those whom we thing deserve the best!</p>
+            <p>Really, go fill out your information. We won't bite.</p>
+        </div>
+        <div class="left">
+            <img src="http://dl.dropbox.com/u/25059665/CoolGear%252020.png">
+            <i><b>We're cool because we care about gear and care about our customers.</b></i><br>
+            <br>
+            <marquee>Our Mission Statement: </marquee>
+            deliver bleeding-edge e-markets, streamline B2C Related Interoperability,
+  transition one-to-one action-items, delayered transparent cloud applications, productize 24/7 relationships,
+   mesh dynamic mindshare, grow plug-and-play web-readiness and innovate real-time experiences.
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#myCube").cube({
+                hue: 115,
+                saturation: 100,
+                minLuminosity: 50,
+                maxLuminosity: 80,
+                horizontalCoefficient: Math.PI / 6 - (0.5 + 1 % (2 * Math.PI)),
+                verticalCoefficient: Math.PI / 6 + ((2 * Math.PI)),
+                lightDirection: [[1 / Math.sqrt(3)], [1 / Math.sqrt(3)], [1 / Math.sqrt(3)]]
+            });
+        });
+</script>
+</body>
+</html>
